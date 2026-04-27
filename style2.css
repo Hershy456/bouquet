@@ -1,0 +1,170 @@
+*{
+box-sizing:border-box;
+font-family:Poppins, sans-serif;
+}
+
+body{
+margin:0;
+min-height:100vh;
+background:linear-gradient(#3b0a0a,#120202);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+.container{
+text-align:center;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.bouquet-wrap{
+position:relative;
+width:300px;
+margin:auto;
+}
+
+.wrap{
+width:100%;
+pointer-events:none;
+}
+
+/* Rose Layer */
+
+.rose-layer{
+position:absolute;
+top:80px;
+left:50%;
+transform:translateX(-50%);
+width:240px;
+height:220px;
+}
+
+/* Rose */
+
+.rose{
+position:absolute;
+width:80px;
+height:80px;
+background:url("assets/bud.png");
+background-size:cover;
+cursor:pointer;
+transition:transform 0.4s ease;
+}
+
+.rose.bloom{
+background:url("assets/bloom.png");
+background-size:cover;
+animation:bloom 0.6s ease;
+filter:drop-shadow(0 0 12px pink);
+}
+
+@keyframes bloom{
+0%{transform:scale(0.4);}
+100%{transform:scale(1);}
+}
+
+/* Positions */
+
+.r1{top:0;left:120px;}
+.r2{top:0;left:166px;}
+.r3{top:0;left:58px;}
+
+.r4{top:66px;left:20px;}
+.r5{top:30px;left:60px;}
+.r6{top:40px;left:130px;}
+.r7{top:56px;left:170px;}
+
+.r8{top:81px;left:60px;}
+.r9{top:75px;left:120px;}
+
+/* Butterfly */
+
+.butterfly{
+position:absolute;
+width:40px;
+height:40px;
+background:url("assets/butterfly.gif");
+background-size:cover;
+pointer-events:none;
+animation:fly 4s linear forwards;
+}
+
+@keyframes fly{
+from{
+transform:translate(0,0) scale(0.6);
+opacity:1;
+}
+to{
+transform:translate(200px,-250px) scale(1.1);
+opacity:0;
+}
+}
+.magic-btn{
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:40px;
+
+  background:rgba(255, 92, 138, 0.15);
+  backdrop-filter:blur(6px);
+
+  border:1px solid rgba(255,255,255,0.3);
+
+  color:#fff;
+  font-size:22px;
+  letter-spacing:1px;
+
+  text-shadow:
+    0 0 5px #ff9aa2,
+    0 0 10px #ff6f91,
+    0 0 20px #ff4d6d;
+
+  box-shadow:
+    0 0 10px rgba(255,105,135,0.4),
+    inset 0 0 10px rgba(255,105,135,0.3);
+
+  animation:magicFloat 3s ease-in-out infinite;
+}
+
+@keyframes magicFloat{
+  0%{
+    transform:translateY(0) scale(1);
+  }
+  50%{
+    transform:translateY(-4px) scale(1.03);
+  }
+  100%{
+    transform:translateY(0) scale(1);
+  }
+}
+/* Gentle sway animation */
+
+.rose{
+  animation:roseSway 4s ease-in-out infinite;
+  transform-origin:bottom center;
+}
+
+/* Slight variation so all roses don't move same */
+
+.rose:nth-child(even){
+  animation-duration:5s;
+}
+
+.rose:nth-child(3n){
+  animation-duration:6s;
+}
+
+@keyframes roseSway{
+  0%{
+    transform:rotate(-2deg) translateY(0);
+  }
+  50%{
+    transform:rotate(2deg) translateY(-3px);
+  }
+  100%{
+    transform:rotate(-2deg) translateY(0);
+  }
+}
